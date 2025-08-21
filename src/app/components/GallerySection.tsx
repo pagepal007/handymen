@@ -61,7 +61,7 @@ const galleryItems: GalleryItem[] = [
   {
     id: 5,
     image:
-      "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop",
+      "https://img.freepik.com/free-photo/carpenter-cutting-mdf-board-inside-workshop_23-2149451059.jpg?t=st=1755792975~exp=1755796575~hmac=8fb015d49427655f5dba1532b43c2f32d6867e1dbe755e91dbb2120079ad0eab&w=1480",
     title: "Custom Shelving Installation",
     category: "Carpentry",
     description:
@@ -131,14 +131,15 @@ export default function GallerySection() {
                 variant={activeCategory === category ? "contained" : "outlined"}
                 sx={{
                   bgcolor: activeCategory === category ? "rgb(249,115,22)" : "transparent",
+                  textTransform: "none",
                   color:
                     activeCategory === category ? "white" : "text.primary",
-                  borderColor: "grey.300",
+                  borderColor: "grey",
                   "&:hover": {
                     bgcolor:
                       activeCategory === category
                         ? "rgb(234,88,12)"
-                        : "grey.50",
+                        : "grey",
                   },
                 }}
                 onClick={() => setActiveCategory(category)}
@@ -188,14 +189,14 @@ export default function GallerySection() {
                       position: "absolute",
                       inset: 0,
                       bgcolor: "linear-gradient(to top, rgba(0,0,0,0.6), transparent)",
-                      opacity: 0,
+                      opacity: 1,
                       transition: "all 0.3s",
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "flex-end",
                       p: 2,
                       color: "white",
-                      transform: "translateY(20px)",
+                      transform: "translateY(10px)",
                     }}
                   >
                     <Chip

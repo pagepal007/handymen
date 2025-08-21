@@ -27,7 +27,6 @@ type Service = {
   description: string;
   features: string[];
   image: string;
-  price: string;
 };
 
 const services: Service[] = [
@@ -44,17 +43,20 @@ const services: Service[] = [
     ],
     image:
       "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=400&h=300&fit=crop",
-    price: "Starting at $200/room",
   },
   {
     icon: Droplets,
     title: "Plumbing Services",
     description:
       "From leaky faucets to pipe installations, I handle all your plumbing needs with precision and care. Emergency repairs available.",
-    features: ["Leak Repairs", "Fixture Installation", "Pipe Work", "Emergency Service"],
+    features: [
+      "Leak Repairs",
+      "Fixture Installation",
+      "Pipe Work",
+      "Emergency Service",
+    ],
     image:
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
-    price: "Starting at $85/hour",
   },
   {
     icon: Wrench,
@@ -64,7 +66,6 @@ const services: Service[] = [
     features: ["Home Repairs", "Assembly", "Maintenance", "Installations"],
     image:
       "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=400&h=300&fit=crop",
-    price: "Starting at $75/hour",
   },
   {
     icon: Zap,
@@ -79,7 +80,6 @@ const services: Service[] = [
     ],
     image:
       "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&h=300&fit=crop",
-    price: "Starting at $95/hour",
   },
   {
     icon: Hammer,
@@ -89,7 +89,6 @@ const services: Service[] = [
     features: ["Custom Work", "Repairs", "Installations", "Finishing"],
     image:
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=300&fit=crop",
-    price: "Custom Quotes",
   },
   {
     icon: Home,
@@ -103,8 +102,7 @@ const services: Service[] = [
       "Peace of Mind",
     ],
     image:
-      "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=300&fit=crop",
-    price: "Monthly Plans Available",
+      "https://images.unsplash.com/photo-1505798577917-a65157d3320a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
 
@@ -137,8 +135,8 @@ export default function ServicesSection() {
             color="text.secondary"
             sx={{ maxWidth: "720px", mx: "auto" }}
           >
-            From small repairs to major improvements, I provide comprehensive handyman
-            services with the quality and reliability you deserve.
+            From small repairs to major improvements, I provide comprehensive
+            handyman services with the quality and reliability you deserve.
           </Typography>
         </motion.div>
 
@@ -157,9 +155,11 @@ export default function ServicesSection() {
                   <Card
                     elevation={3}
                     sx={{
-                      height: "100%",
+                      height: 400, 
                       transition: "box-shadow 0.3s",
                       "&:hover": { boxShadow: 6 },
+                      display: "flex",
+                      flexDirection: "column",
                     }}
                   >
                     <Box sx={{ position: "relative", overflow: "hidden" }}>
@@ -204,7 +204,14 @@ export default function ServicesSection() {
                         {service.description}
                       </Typography>
 
-                      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 2 }}>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexWrap: "wrap",
+                          gap: 1,
+                          mb: 2,
+                        }}
+                      >
                         {service.features.map((feature) => (
                           <Chip
                             key={feature}
@@ -218,36 +225,6 @@ export default function ServicesSection() {
                           />
                         ))}
                       </Box>
-
-                      <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                          pt: 2,
-                          borderTop: "1px solid",
-                          borderColor: "grey.100",
-                        }}
-                      >
-                        <Typography
-                          variant="subtitle2"
-                          fontWeight="bold"
-                          sx={{ color: "rgb(234,88,12)" }}
-                        >
-                          {service.price}
-                        </Typography>
-                        <Button
-                          size="small"
-                          variant="text"
-                          sx={{
-                            color: "rgb(234,88,12)",
-                            "&:hover": { bgcolor: "rgba(249,115,22,0.1)" },
-                          }}
-                          endIcon={<ArrowRight size={16} />}
-                        >
-                          Learn More
-                        </Button>
-                      </Box>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -255,33 +232,6 @@ export default function ServicesSection() {
             );
           })}
         </Grid>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          style={{ textAlign: "center", marginTop: "3rem" }}
-        >
-          <Typography color="text.secondary" sx={{ mb: 2 }}>
-            Need a custom quote for your specific project?
-          </Typography>
-          <Button
-            size="large"
-            variant="contained"
-            sx={{
-              bgcolor: "rgb(249,115,22)",
-              "&:hover": { bgcolor: "rgb(234,88,12)" },
-              px: 4,
-            }}
-            onClick={() =>
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-            }
-          >
-            Get Your Free Estimate
-          </Button>
-        </motion.div>
       </Box>
     </Box>
   );

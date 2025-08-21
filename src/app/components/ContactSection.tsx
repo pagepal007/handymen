@@ -12,6 +12,7 @@ import {
   Button,
   MenuItem,
   Avatar,
+  Chip,
   Paper,
 } from "@mui/material";
 import {
@@ -45,12 +46,6 @@ const contactInfo = [
     details: "info@handypro.com",
     description: "Response within 24 hours",
   },
-  // {
-  //   icon: <MapPin color="primary" />,
-  //   title: "Service Area",
-  //   details: "Greater Metro Area",
-  //   description: "Within 25 miles of downtown",
-  // },
   {
     icon: <Clock color="primary" />,
     title: "Business Hours",
@@ -92,18 +87,15 @@ export default function ContactSection() {
           viewport={{ once: true }}
           style={{ textAlign: "center", marginBottom: "3rem" }}
         >
-          <Typography
-            variant="overline"
+             <Chip
+            label="Get in Touch"
             sx={{
-              color: "primary.main",
-              fontWeight: 600,
-              letterSpacing: 1,
+              bgcolor: "rgba(249,115,22,0.1)",
+              color: "rgb(234,88,12)",
               mb: 2,
-              display: "block",
+              fontWeight: "bold",
             }}
-          >
-            Get In Touch
-          </Typography>
+          />
           <Typography variant="h4" fontWeight="bold" gutterBottom>
             Ready to Start Your Project?
           </Typography>
@@ -120,7 +112,7 @@ export default function ContactSection() {
 
         <Grid container spacing={4}>
           {/* Contact Form */}
-          <Grid item size={{ xs: 12, md: 6}} >
+          <Grid item size={{ xs: 12, md: 6 }}>
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -149,7 +141,7 @@ export default function ContactSection() {
                   ) : (
                     <Box component="form" onSubmit={handleSubmit}>
                       <Grid container spacing={2}>
-                        <Grid item size={{ xs: 12, sm: 6}}>
+                        <Grid item size={{ xs: 12, sm: 6 }}>
                           <TextField
                             fullWidth
                             label="Full Name *"
@@ -159,7 +151,7 @@ export default function ContactSection() {
                             required
                           />
                         </Grid>
-                        <Grid item size={{ xs: 12, sm: 6 }} >
+                        <Grid item size={{ xs: 12, sm: 6 }}>
                           <TextField
                             fullWidth
                             label="Phone Number *"
@@ -203,7 +195,7 @@ export default function ContactSection() {
                             <MenuItem value="other">Other</MenuItem>
                           </TextField>
                         </Grid>
-                        <Grid item size={{ xs: 12}}>
+                        <Grid item size={{ xs: 12 }}>
                           <TextField
                             fullWidth
                             multiline
@@ -220,9 +212,8 @@ export default function ContactSection() {
                         type="submit"
                         fullWidth
                         variant="contained"
-                        color="primary"
                         size="large"
-                        sx={{ mt: 3 }}
+                        sx={{ mt: 3,bgcolor: "#FF6B00", "&:hover": { bgcolor: "#e65c00" },fontWeight: "bold",textTransform: "none" }}
                         startIcon={<Send />}
                       >
                         Send Request
@@ -235,7 +226,7 @@ export default function ContactSection() {
           </Grid>
 
           {/* Contact Information */}
-          <Grid item size={{ xs: 12,md: 6 }}>
+          <Grid item size={{ xs: 12, md: 6 }}>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -245,7 +236,7 @@ export default function ContactSection() {
               <Paper
                 elevation={6}
                 sx={{
-                  bgcolor: "primary.main",
+                  bgcolor: "#e65c00",
                   color: "white",
                   textAlign: "center",
                   p: 4,
@@ -283,7 +274,7 @@ export default function ContactSection() {
                     >
                       <Card elevation={4}>
                         <CardContent sx={{ display: "flex", gap: 2 }}>
-                          <Avatar sx={{ bgcolor: "primary.light" }}>
+                          <Avatar sx={{ bgcolor: "#e65c00",color: "white" }}>
                             {item.icon}
                           </Avatar>
                           <Box>
@@ -306,7 +297,11 @@ export default function ContactSection() {
 
               <Card
                 elevation={0}
-                sx={{ border: "2px solid", borderColor: "success.light", mt: 4 }}
+                sx={{
+                  border: "2px solid",
+                  borderColor: "success.light",
+                  mt: 4,
+                }}
               >
                 <CardContent sx={{ textAlign: "center" }}>
                   <CheckCircle

@@ -1,21 +1,9 @@
 "use client";
 
 import React from "react";
-import {
-  Box,
-  Grid,
-  Typography,
-  Chip,
-  Paper,
-} from "@mui/material";
+import { Box, Grid, Typography, Chip, Paper } from "@mui/material";
 import { motion } from "framer-motion";
-import {
-  Award,
-  Shield,
-  Clock,
-  Users,
-  CheckCircle,
-} from "lucide-react";
+import { Award, Shield, Clock, Users, CheckCircle } from "lucide-react";
 
 type Stat = {
   icon: React.ElementType;
@@ -27,7 +15,6 @@ const stats: Stat[] = [
   { icon: Users, number: "50+", label: "Happy Customers" },
   { icon: Clock, number: "10+", label: "Years Experience" },
   { icon: Award, number: "100%", label: "Satisfaction Rate" },
-  { icon: Shield, number: "24/7", label: "Emergency Service" },
 ];
 
 const qualities: string[] = [
@@ -64,7 +51,10 @@ export default function AboutSection() {
                 />
                 <Typography variant="h4" fontWeight="bold" gutterBottom>
                   Your Reliable Home
-                  <Box component="span" sx={{ color: "rgb(249,115,22)", display: "block" }}>
+                  <Box
+                    component="span"
+                    sx={{ color: "rgb(249,115,22)", display: "block" }}
+                  >
                     Improvement Partner
                   </Box>
                 </Typography>
@@ -94,7 +84,12 @@ export default function AboutSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.5rem" }}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.75rem",
+                      marginBottom: "0.5rem",
+                    }}
                   >
                     <CheckCircle size={20} color="#22c55e" />
                     <Typography variant="body2" color="text.primary">
@@ -131,7 +126,7 @@ export default function AboutSection() {
           </Grid>
 
           {/* Image & Stats */}
-          <Grid item size={{ xs: 12, md: 6 }} >
+          <Grid item size={{ xs: 12, md: 6 }}>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -140,7 +135,13 @@ export default function AboutSection() {
               style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
             >
               {/* Profile Image */}
-              <Box sx={{ position: "relative", display: "flex", justifyContent: "center" }}>
+              <Box
+                sx={{
+                  position: "relative",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
                 <Box
                   component="img"
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face"
@@ -178,12 +179,18 @@ export default function AboutSection() {
               </Box>
 
               {/* Stats Grid */}
-              <Grid container spacing={2}>
+              <Box
+                display="flex"
+                flexWrap="wrap"
+                gap={2} // spacing between items
+                justifyContent={{ xs: "center", md: "flex-start" }}
+              >
                 {stats.map((stat, index) => {
                   const Icon = stat.icon;
                   return (
-                    <Grid item size={{ xs: 12, sm: 6 }}  key={stat.label}>
+               
                       <motion.div
+                        key={stat.label}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: index * 0.1 }}
@@ -199,8 +206,16 @@ export default function AboutSection() {
                             borderColor: "grey.100",
                           }}
                         >
-                          <Icon size={32} color="#f97316" style={{ marginBottom: "0.75rem" }} />
-                          <Typography variant="h6" fontWeight="bold" color="text.primary">
+                          <Icon
+                            size={32}
+                            color="#f97316"
+                            style={{ marginBottom: "0.75rem" }}
+                          />
+                          <Typography
+                            variant="h6"
+                            fontWeight="bold"
+                            color="text.primary"
+                          >
                             {stat.number}
                           </Typography>
                           <Typography variant="body2" color="text.secondary">
@@ -208,10 +223,10 @@ export default function AboutSection() {
                           </Typography>
                         </Paper>
                       </motion.div>
-                    </Grid>
+                  
                   );
                 })}
-              </Grid>
+              </Box>
             </motion.div>
           </Grid>
         </Grid>
