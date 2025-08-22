@@ -116,8 +116,13 @@ export default function GallerySection() {
               mb: 2,
             }}
           />
-          <Typography variant="h4" fontWeight="bold" sx={{ fontSize: { xs: "1.75rem", md: "2rem" } }} gutterBottom>
-            Recent <span style={{ color: "rgb(249,115,22)"}}>Projects</span> 
+          <Typography
+            variant="h4"
+            fontWeight="bold"
+            sx={{ fontSize: { xs: "1.75rem", md: "2rem" } }}
+            gutterBottom
+          >
+            Recent <span style={{ color: "rgb(249,115,22)" }}>Projects</span>
           </Typography>
           <Typography
             variant="body1"
@@ -169,8 +174,8 @@ export default function GallerySection() {
           {filteredItems.map((item, index) => (
             <Grid size={{ xs: 12, md: 6, lg: 4 }} key={item.id}>
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 style={{ cursor: "pointer" }}
@@ -243,11 +248,12 @@ export default function GallerySection() {
         </Grid>
 
         {/* Lightbox Modal */}
+        {/* By default, MUI <Dialog> toggles the scrollbar on the <body> when it opens/closes. */}
         <Dialog
           open={!!selectedImage}
           onClose={() => setSelectedImage(null)}
-          fullWidth
           maxWidth="lg"
+          disableScrollLock
           PaperProps={{
             sx: { bgcolor: "black", color: "white", position: "relative" },
           }}
