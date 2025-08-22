@@ -27,11 +27,15 @@ const qualities: string[] = [
 
 export default function AboutSection() {
   return (
-    <Box component="section" id="about" sx={{ py: 10, bgcolor: "grey.50" }}>
+    <Box
+      component="section"
+      id="about"
+      sx={{ py:8, bgcolor: "grey.50" }}
+    >
       <Box maxWidth="lg" sx={{ mx: "auto", px: { xs: 2, sm: 4, lg: 6 } }}>
         <Grid container spacing={6} alignItems="center">
-          {/* Content */}
-          <Grid item size={{ xs: 12, md: 6 }}>
+          {/* Left Content */}
+          <Grid size={{ xs: 12, md: 6 }}>
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -39,7 +43,15 @@ export default function AboutSection() {
               viewport={{ once: true }}
               style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
             >
-              <div>
+              <Box
+                sx={{
+                  textAlign: { xs: "center", md: "left" }, // center text on mobile
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: { xs: "center", md: "flex-start" }, // center items on mobile
+                  gap: 2,
+                }}
+              >
                 <Chip
                   label="About Me"
                   sx={{
@@ -49,7 +61,12 @@ export default function AboutSection() {
                     mb: 2,
                   }}
                 />
-                <Typography variant="h4" fontWeight="bold" gutterBottom>
+                <Typography
+                  variant="h4"
+                  fontWeight="bold"
+                  gutterBottom
+                  sx={{ fontSize: { xs: "1.75rem", md: "2.25rem" } }}
+                >
                   Your Reliable Home
                   <Box
                     component="span"
@@ -70,13 +87,14 @@ export default function AboutSection() {
                   project, I approach each job with the same attention to detail
                   and commitment to excellence.
                 </Typography>
-              </div>
+              </Box>
 
               {/* Qualities */}
-              <Box>
+              <Box display={"flex"} flexDirection={"column"} justifyContent={"center"}   alignItems={{xs:"center",md:"flex-start"}}   >
                 <Typography variant="h6" fontWeight="bold" gutterBottom>
                   Why Choose HandyPro?
                 </Typography>
+                <Box >
                 {qualities.map((quality, index) => (
                   <motion.div
                     key={quality}
@@ -97,6 +115,7 @@ export default function AboutSection() {
                     </Typography>
                   </motion.div>
                 ))}
+                </Box>
               </Box>
 
               {/* Certifications */}
@@ -125,14 +144,14 @@ export default function AboutSection() {
             </motion.div>
           </Grid>
 
-          {/* Image & Stats */}
-          <Grid item size={{ xs: 12, md: 6 }}>
+          {/* Right Content (Image & Stats) */}
+          <Grid size={{ xs: 12, md: 6 }}>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
+              style={{ display: "flex", flexDirection: "column", gap: "2rem", }}
             >
               {/* Profile Image */}
               <Box
@@ -157,14 +176,14 @@ export default function AboutSection() {
                 <Box
                   sx={{
                     position: "absolute",
-                    top: -24,
-                    right: -24,
+                    top: -20,
+                    right: -20,
                     bgcolor: "rgb(249,115,22)",
                     color: "white",
                     borderRadius: "50%",
-                    width: 80,
-                    height: 80,
-                    display: "flex",
+                    width: 70,
+                    height: 70,
+                    display: { xs: "none", sm: "flex" }, // hide badge on tiny screens
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
@@ -180,50 +199,50 @@ export default function AboutSection() {
 
               {/* Stats Grid */}
               <Box
-                display="flex"
-                flexWrap="wrap"
-                gap={2} // spacing between items
-                justifyContent={{ xs: "center", md: "flex-start" }}
+                display="grid"
+                gridTemplateColumns={{ xs: "1fr 1fr", sm: "repeat(3, 1fr)" }}
+                gap={2}
+                justifyContent="center"
+                 textAlign="center"
+           
               >
                 {stats.map((stat, index) => {
                   const Icon = stat.icon;
                   return (
-               
-                      <motion.div
-                        key={stat.label}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: index * 0.1 }}
-                        viewport={{ once: true }}
+                    <motion.div
+                      key={stat.label}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <Paper
+                        elevation={3}
+                        sx={{
+                          p: { xs: 2, md: 3 },
+                          borderRadius: 3,
+                          textAlign: "center",
+                          border: "1px solid",
+                          borderColor: "grey.100",
+                        }}
                       >
-                        <Paper
-                          elevation={3}
-                          sx={{
-                            p: 3,
-                            borderRadius: 3,
-                            textAlign: "center",
-                            border: "1px solid",
-                            borderColor: "grey.100",
-                          }}
+                        <Icon
+                          size={32}
+                          color="#f97316"
+                          style={{ marginBottom: "0.75rem" }}
+                        />
+                        <Typography
+                          variant="h6"
+                          fontWeight="bold"
+                          color="text.primary"
                         >
-                          <Icon
-                            size={32}
-                            color="#f97316"
-                            style={{ marginBottom: "0.75rem" }}
-                          />
-                          <Typography
-                            variant="h6"
-                            fontWeight="bold"
-                            color="text.primary"
-                          >
-                            {stat.number}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            {stat.label}
-                          </Typography>
-                        </Paper>
-                      </motion.div>
-                  
+                          {stat.number}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {stat.label}
+                        </Typography>
+                      </Paper>
+                    </motion.div>
                   );
                 })}
               </Box>

@@ -106,8 +106,8 @@ const services: Service[] = [
 
 export default function ServicesSection() {
   return (
-    <Box component="section" id="services" sx={{ pb: 10,pt:10, bgcolor: "white" }}>
-      <Box maxWidth="lg" sx={{ mx: "auto", px: { xs: 2, sm: 4, lg: 6 } }}>
+    <Box component="section"  sx={{ pb:4,pt:8, bgcolor: "white" }}>
+      <Box maxWidth="lg" sx={{ mx: "auto", px: { xs: 2, sm: 4, lg: 4 } }}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -125,13 +125,13 @@ export default function ServicesSection() {
               mb: 2,
             }}
           />
-          <Typography variant="h4" fontWeight="bold" gutterBottom>
-            Complete Home Solutions
+          <Typography variant="h4"  fontWeight="bold" sx={{ fontSize: { xs: "1.5rem", md: "2rem" } }} gutterBottom>
+            Complete <span style={{ color: "rgb(249,115,22)"}}>Home Solutions</span> 
           </Typography>
           <Typography
             variant="body1"
             color="text.secondary"
-            sx={{ maxWidth: "720px", mx: "auto" }}
+            sx={{ maxWidth: "720px", mx: "auto",fontSize: { xs: "0.9rem", md: "1rem" } }}
           >
             From small repairs to major improvements, I provide comprehensive
             handyman services with the quality and reliability you deserve.
@@ -143,7 +143,7 @@ export default function ServicesSection() {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Grid item size={{ xs: 12, md: 6, lg: 4 }} key={service.title}>
+              <Grid  size={{ xs: 12, md: 6, lg: 4 }} key={service.title}>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -153,7 +153,7 @@ export default function ServicesSection() {
                   <Card
                     elevation={3}
                     sx={{
-                      height: 400, 
+                       height: { xs: 300, sm: 400 },
                       transition: "box-shadow 0.3s",
                       "&:hover": { boxShadow: 6 },
                       display: "flex",
@@ -167,7 +167,7 @@ export default function ServicesSection() {
                         alt={service.title}
                         sx={{
                           width: "100%",
-                          height: 200,
+                           height: { xs: 180, sm: 200 },
                           objectFit: "cover",
                           transition: "transform 0.3s",
                           "&:hover": { transform: "scale(1.05)" },
@@ -191,13 +191,13 @@ export default function ServicesSection() {
                       </Box>
                     </Box>
                     <CardContent sx={{ p: 3 }}>
-                      <Typography variant="h6" fontWeight="bold" gutterBottom>
+                      <Typography variant="h6" fontWeight="bold"  sx={{ fontSize: { xs: "1rem", md: "1.1rem" } }} gutterBottom>
                         {service.title}
                       </Typography>
                       <Typography
                         variant="body2"
                         color="text.secondary"
-                        sx={{ mb: 2 }}
+                          sx={{ mb: 2, fontSize: { xs: "0.8rem", md: "0.9rem" } }}
                       >
                         {service.description}
                       </Typography>

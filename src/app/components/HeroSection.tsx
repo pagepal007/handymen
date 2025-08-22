@@ -13,31 +13,28 @@ import {
   Chip,
   Stack,
 } from "@mui/material";
-
+import { TypeAnimation } from "react-type-animation";
 
 export default function HeroSection(): JSX.Element {
-
-
   return (
     <Box
       component="section"
-      id="home"
       sx={{
-        height: "100vh",
+        minHeight: "100vh",
         background: "linear-gradient(to bottom right, #f8fafc, #ffffff)",
         position: "relative",
-        pt: 10
+        pt: { xs: 2, md: 10 },
       }}
     >
       {/* Background Pattern */}
-       <Box
+      <Box
         sx={{
           position: "absolute",
           inset: 0,
           opacity: 0.02,
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}
-      /> 
+      />
 
       <Box
         sx={{
@@ -48,24 +45,22 @@ export default function HeroSection(): JSX.Element {
         }}
       >
         <Grid container spacing={8} alignItems="center">
-          {/* Content */}
-          <Grid item size={{ xs: 12, md: 6 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <Stack spacing={2}>
+              <Stack spacing={2} textAlign={{ xs: "center", md: "left" }}>
                 <Chip
                   label="⭐ Licensed & Insured Professional"
                   sx={{
-                    backgroundColor: "#FFF4E5", // light orange
-                    color: "#FF6B00", // strong orange
+                    backgroundColor: "#FFF4E5",
+                    color: "#FF6B00",
                     border: "1px solid #FFD8A8",
                     fontWeight: "bold",
-                    px: 2,
-                    py: 0.5,
-                    width: "fit-content",
+
+                    alignSelf: { xs: "center", md: "flex-start" },
                   }}
                 />
 
@@ -73,7 +68,7 @@ export default function HeroSection(): JSX.Element {
                   variant="h2"
                   sx={{
                     fontWeight: "bold",
-                    fontSize: { xs: "2.5rem", md: "3.2rem" },
+                    fontSize: { xs: "2rem", sm: "2.5rem", md: "3.2rem" },
                     lineHeight: 1,
                     color: "text.primary",
                   }}
@@ -89,17 +84,31 @@ export default function HeroSection(): JSX.Element {
                     component="span"
                     sx={{
                       display: "block",
-                      fontSize: { xs: "1.25rem", md: "1.5rem" },
-                      fontWeight: "normal",
-                      color: "text.primary",
+                      fontSize: { xs: "1.1rem", sm: "1.25rem", md: "1.5rem" },
+                      fontWeight: "bold",
+                      color: "transparent",
+                      background: "linear-gradient(90deg, #FF6B00, #FFB347)",
+                      WebkitBackgroundClip: "text",
+                      backgroundClip: "text",
+                      letterSpacing: 0.5,
+                      textShadow: "1px 1px 2px rgba(0,0,0,0.1)",
                       mt: 1,
                     }}
                   >
-                    For Every Home Project
+                    <TypeAnimation
+                      sequence={["For Every Home Project", 1000, "", 2000]}
+                      wrapper="span"
+                      cursor={true}
+                      repeat={Infinity}
+                    />
                   </Typography>
                 </Typography>
 
-                <Typography variant="body1" color="text.secondary">
+                <Typography
+                  variant="body1"
+                  color="text.secondary"
+                  sx={{ fontSize: { xs: "0.95rem", md: "1rem" } }}
+                >
                   From painting and plumbing to general repairs, I deliver
                   quality craftsmanship with honest pricing. Your home deserves
                   the best care, and I'm here to provide it.
@@ -109,17 +118,17 @@ export default function HeroSection(): JSX.Element {
                 <Grid container spacing={2}>
                   {[
                     {
-                      icon: <CheckCircle color="green" size={15} />,
+                      icon: <CheckCircle color="green" size={17} />,
                       title: "Quality Work",
                       subtitle: "Every time",
                     },
                     {
-                      icon: <Clock color="blue" size={15} />,
+                      icon: <Clock color="blue" size={17} />,
                       title: "On Time",
                       subtitle: "Always",
                     },
                     {
-                      icon: <Shield color="purple" size={15} />,
+                      icon: <Shield color="purple" size={17} />,
                       title: "Guaranteed",
                       subtitle: "100%",
                     },
@@ -131,9 +140,10 @@ export default function HeroSection(): JSX.Element {
                           display: "flex",
                           alignItems: "center",
                           gap: 1,
-                          p: 1.5,
+                          p: { xs: 1.2, sm: 1.5 },
                           borderRadius: 2,
                           boxShadow: 1,
+                          justifyContent: { xs: "center", sm: "flex-start" },
                         }}
                       >
                         {f.icon}
@@ -158,10 +168,8 @@ export default function HeroSection(): JSX.Element {
                     sx={{
                       backgroundColor: "#FF6B00",
                       "&:hover": { backgroundColor: "#e65c00" },
-                      paddingLeft: "32px",
-                      paddingRight: "32px",
-                      paddingTop: "12px",
-                      paddingBottom: "12px",
+                      px: 4,
+                      py: 1.5,
                       fontSize: "1rem",
                       fontWeight: "bold",
                       boxShadow: 3,
@@ -185,33 +193,12 @@ export default function HeroSection(): JSX.Element {
                     </Box>
                   </Button>
                 </Stack>
-
-                {/* Social Proof */}
-                <Stack direction="row" spacing={3} alignItems="center" pt={2}>
-                  <Stack direction="row" spacing={0.5}>
-                    {[1, 2, 3, 4, 5].map((s) => (
-                      <Star
-                        key={s}
-                        size={20}
-                        style={{ fill: "#facc15", color: "#facc15" }}
-                      />
-                    ))}
-                  </Stack>
-                  <Box>
-                    <Typography fontWeight="bold" color="text.primary">
-                      4.9/5 Rating
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      50+ Happy Customers
-                    </Typography>
-                  </Box>
-                </Stack>
               </Stack>
             </motion.div>
           </Grid>
 
           {/* Hero Image */}
-          <Grid item size={{ xs: 12, md: 6 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -225,14 +212,14 @@ export default function HeroSection(): JSX.Element {
                   overflow: "visible",
                 }}
               >
-                <CardContent sx={{ p: 2 }}>
+                <CardContent sx={{ p: { xs: 1.5, sm: 1 } }}>
                   <Box
                     component="img"
                     src="https://images.unsplash.com/photo-1618090584176-7132b9911657?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Professional handyman at work"
                     sx={{
                       width: "100%",
-                      height: 400,
+                      height: { xs: 240, sm: 360, md: 480, lg: 550 },
                       objectFit: "cover",
                       borderRadius: 3,
                     }}
@@ -243,9 +230,9 @@ export default function HeroSection(): JSX.Element {
                 <Card
                   sx={{
                     position: "absolute",
-                    bottom: -24,
-                    left: -24,
-                    p: 3,
+                    bottom: { xs: -16, sm: -20, md: -24 },
+                    left: { xs: -10, sm: -16, md: -24 },
+                    p: { xs: 2, md: 3 },
                     display: "flex",
                     alignItems: "center",
                     gap: 2,

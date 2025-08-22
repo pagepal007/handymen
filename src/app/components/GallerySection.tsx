@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import {
@@ -78,7 +78,14 @@ const galleryItems: GalleryItem[] = [
   },
 ];
 
-const categories = ["All", "Painting", "Plumbing", "General", "Carpentry", "Maintenance"];
+const categories = [
+  "All",
+  "Painting",
+  "Plumbing",
+  "General",
+  "Carpentry",
+  "Maintenance",
+];
 
 export default function GallerySection() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
@@ -90,7 +97,7 @@ export default function GallerySection() {
       : galleryItems.filter((item) => item.category === activeCategory);
 
   return (
-    <Box component="section" id="gallery" sx={{ py: 10, bgcolor: "white" }}>
+    <Box component="section" id="gallery" sx={{ py: 8, bgcolor: "white" }}>
       <Box maxWidth="lg" sx={{ mx: "auto", px: { xs: 2, sm: 4, lg: 6 } }}>
         {/* Header */}
         <motion.div
@@ -109,8 +116,8 @@ export default function GallerySection() {
               mb: 2,
             }}
           />
-          <Typography variant="h4" fontWeight="bold" gutterBottom>
-            Recent Projects
+          <Typography variant="h4" fontWeight="bold" sx={{ fontSize: { xs: "1.75rem", md: "2rem" } }} gutterBottom>
+            Recent <span style={{ color: "rgb(249,115,22)"}}>Projects</span> 
           </Typography>
           <Typography
             variant="body1"
@@ -123,23 +130,30 @@ export default function GallerySection() {
           </Typography>
 
           {/* Category Filter */}
-          <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 1 }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: 1,
+            }}
+          >
             {categories.map((category) => (
               <Button
                 key={category}
                 size="small"
                 variant={activeCategory === category ? "contained" : "outlined"}
                 sx={{
-                  bgcolor: activeCategory === category ? "rgb(249,115,22)" : "transparent",
+                  bgcolor:
+                    activeCategory === category
+                      ? "rgb(249,115,22)"
+                      : "transparent",
                   textTransform: "none",
-                  color:
-                    activeCategory === category ? "white" : "text.primary",
+                  color: activeCategory === category ? "white" : "text.primary",
                   borderColor: "grey",
                   "&:hover": {
                     bgcolor:
-                      activeCategory === category
-                        ? "rgb(234,88,12)"
-                        : "grey",
+                      activeCategory === category ? "rgb(234,88,12)" : "grey",
                   },
                 }}
                 onClick={() => setActiveCategory(category)}
@@ -153,7 +167,7 @@ export default function GallerySection() {
         {/* Gallery Grid */}
         <Grid container spacing={3}>
           {filteredItems.map((item, index) => (
-            <Grid item size={{ xs: 12, md: 6, lg: 4 }} key={item.id}>
+            <Grid size={{ xs: 12, md: 6, lg: 4 }} key={item.id}>
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -169,7 +183,10 @@ export default function GallerySection() {
                     overflow: "hidden",
                     boxShadow: 3,
                     "&:hover img": { transform: "scale(1.05)" },
-                    "&:hover .overlay": { opacity: 1, transform: "translateY(0)" },
+                    "&:hover .overlay": {
+                      opacity: 1,
+                      transform: "translateY(0)",
+                    },
                   }}
                 >
                   <Box
@@ -178,7 +195,7 @@ export default function GallerySection() {
                     alt={item.title}
                     sx={{
                       width: "100%",
-                      height: 250,
+                      height: { xs: 200, sm: 250 },
                       objectFit: "cover",
                       transition: "transform 0.3s",
                     }}
@@ -188,7 +205,8 @@ export default function GallerySection() {
                     sx={{
                       position: "absolute",
                       inset: 0,
-                      bgcolor: "linear-gradient(to top, rgba(0,0,0,0.6), transparent)",
+                      bgcolor:
+                        "linear-gradient(to top, rgba(0,0,0,0.6), transparent)",
                       opacity: 1,
                       transition: "all 0.3s",
                       display: "flex",
@@ -211,7 +229,10 @@ export default function GallerySection() {
                     <Typography variant="subtitle1" fontWeight="bold">
                       {item.title}
                     </Typography>
-                    <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.9)" }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "rgba(255,255,255,0.9)" }}
+                    >
                       {item.description}
                     </Typography>
                   </Box>
@@ -263,7 +284,8 @@ export default function GallerySection() {
                   bottom: 0,
                   left: 0,
                   right: 0,
-                  bgcolor: "linear-gradient(to top, rgba(0,0,0,0.8), transparent)",
+                  bgcolor:
+                    "linear-gradient(to top, rgba(0,0,0,0.8), transparent)",
                   p: 3,
                 }}
               >
@@ -278,7 +300,10 @@ export default function GallerySection() {
                 <Typography variant="h6" fontWeight="bold">
                   {selectedImage.title}
                 </Typography>
-                <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.9)" }}>
+                <Typography
+                  variant="body2"
+                  sx={{ color: "rgba(255,255,255,0.9)" }}
+                >
                   {selectedImage.description}
                 </Typography>
               </Box>

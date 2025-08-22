@@ -14,11 +14,11 @@ import {
   Avatar,
   Chip,
   Paper,
+  Alert,
 } from "@mui/material";
 import {
   Phone,
   Mail,
-  // MapPin,
   AccessTime as Clock,
   CheckCircle,
   Send,
@@ -63,6 +63,7 @@ export default function ContactSection() {
     message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -70,17 +71,57 @@ export default function ContactSection() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const validateForm = () => {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.message
+    ) {
+      return "All required fields must be filled out.";
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      return "Please enter a valid email address.";
+    }
+    const phoneRegex = /^[0-9\-\+\s]{7,15}$/;
+    if (!phoneRegex.test(formData.phone)) {
+      return "Please enter a valid phone number.";
+    }
+    return null;
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    const validationError = validateForm();
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+    setError(null);
+
+    try {
+      // Simulate API call (replace with real API endpoint)
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      setIsSubmitted(true);
+      setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+
+      setTimeout(() => setIsSubmitted(false), 4000);
+    } catch (err) {
+      setError("Something went wrong. Please try again later.");
+    }
   };
 
   return (
     <Box
       id="contact"
       component="section"
-      sx={{ py: 10, bgcolor: "background.paper" }}
+      sx={{ py: 8, bgcolor: "background.paper" }}
     >
       <Box maxWidth="lg" mx="auto" px={2}>
         {/* Header */}
@@ -98,16 +139,23 @@ export default function ContactSection() {
               color: "rgb(234,88,12)",
               mb: 2,
               fontWeight: "bold",
+              fontSize: { xs: "0.7rem", sm: "0.85rem", md: "0.9rem" },
             }}
           />
-          <Typography variant="h4" fontWeight="bold" gutterBottom>
-            Ready to Start Your Project?
+          <Typography
+            variant="h4"
+            fontWeight="bold"
+            gutterBottom
+            sx={{ fontSize: { xs: "1.75rem", sm: "2rem"} }}
+          >
+            Ready to <span style={{ color: "rgb(249,115,22)"}}>Start Your Project?</span> 
           </Typography>
           <Typography
             variant="body1"
             color="text.secondary"
             maxWidth="md"
             mx="auto"
+            sx={{ fontSize: { xs: "0.875rem", sm: "0.95rem", md: "1rem" } }}
           >
             Get a free estimate for your home improvement project. I respond to
             all inquiries quickly and provide transparent, upfront pricing.
@@ -116,7 +164,7 @@ export default function ContactSection() {
 
         <Grid container spacing={4}>
           {/* Contact Form */}
-          <Grid item size={{ xs: 12, md: 6 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -127,6 +175,17 @@ export default function ContactSection() {
                 <CardHeader
                   title="Request Your Free Quote"
                   subheader="Fill out the form below and I'll get back to you within 24 hours."
+                  titleTypographyProps={{
+                    sx: {
+                      fontSize: { xs: "1.2rem", sm: "1.3rem", md: "1.4rem" },
+                      fontWeight: "bold",
+                    },
+                  }}
+                  subheaderTypographyProps={{
+                    sx: {
+                      fontSize: { xs: "0.85rem", sm: "0.9rem", md: "1rem" },
+                    },
+                  }}
                 />
                 <CardContent>
                   {isSubmitted ? (
@@ -137,7 +196,16 @@ export default function ContactSection() {
                       <Typography variant="h6" fontWeight="bold" gutterBottom>
                         Thank you!
                       </Typography>
-                      <Typography color="text.secondary">
+                      <Typography
+                        color="text.secondary"
+                        sx={{
+                          fontSize: {
+                            xs: "0.875rem",
+                            sm: "0.95rem",
+                            md: "1rem",
+                          },
+                        }}
+                      >
                         I'll review your request and get back to you within 24
                         hours.
                       </Typography>
@@ -145,7 +213,7 @@ export default function ContactSection() {
                   ) : (
                     <Box component="form" onSubmit={handleSubmit}>
                       <Grid container spacing={2}>
-                        <Grid item size={{ xs: 12, sm: 6 }}>
+                        <Grid size={{ xs: 12 }}>
                           <TextField
                             fullWidth
                             label="Full Name *"
@@ -153,9 +221,27 @@ export default function ContactSection() {
                             value={formData.name}
                             onChange={handleChange}
                             required
+                            InputLabelProps={{
+                              sx: {
+                                fontSize: {
+                                  xs: "0.85rem",
+                                  sm: "0.9rem",
+                                  md: "1rem",
+                                },
+                              },
+                            }}
+                            inputProps={{
+                              sx: {
+                                fontSize: {
+                                  xs: "0.875rem",
+                                  sm: "0.95rem",
+                                  md: "1rem",
+                                },
+                              },
+                            }}
                           />
                         </Grid>
-                        <Grid item size={{ xs: 12, sm: 6 }}>
+                        <Grid size={{ xs: 12}}>
                           <TextField
                             fullWidth
                             label="Phone Number *"
@@ -163,9 +249,27 @@ export default function ContactSection() {
                             value={formData.phone}
                             onChange={handleChange}
                             required
+                            InputLabelProps={{
+                              sx: {
+                                fontSize: {
+                                  xs: "0.85rem",
+                                  sm: "0.9rem",
+                                  md: "1rem",
+                                },
+                              },
+                            }}
+                            inputProps={{
+                              sx: {
+                                fontSize: {
+                                  xs: "0.875rem",
+                                  sm: "0.95rem",
+                                  md: "1rem",
+                                },
+                              },
+                            }}
                           />
                         </Grid>
-                        <Grid item size={{ xs: 12 }}>
+                        <Grid size={{ xs: 12 }}>
                           <TextField
                             fullWidth
                             label="Email Address *"
@@ -174,9 +278,27 @@ export default function ContactSection() {
                             value={formData.email}
                             onChange={handleChange}
                             required
+                            InputLabelProps={{
+                              sx: {
+                                fontSize: {
+                                  xs: "0.85rem",
+                                  sm: "0.9rem",
+                                  md: "1rem",
+                                },
+                              },
+                            }}
+                            inputProps={{
+                              sx: {
+                                fontSize: {
+                                  xs: "0.875rem",
+                                  sm: "0.95rem",
+                                  md: "1rem",
+                                },
+                              },
+                            }}
                           />
                         </Grid>
-                        <Grid item size={{ xs: 12 }}>
+                        <Grid size={{ xs: 12 }}>
                           <TextField
                             select
                             fullWidth
@@ -184,7 +306,24 @@ export default function ContactSection() {
                             name="service"
                             value={formData.service}
                             onChange={handleChange}
-                       
+                            InputLabelProps={{
+                              sx: {
+                                fontSize: {
+                                  xs: "0.85rem",
+                                  sm: "0.9rem",
+                                  md: "1rem",
+                                },
+                              },
+                            }}
+                            inputProps={{
+                              sx: {
+                                fontSize: {
+                                  xs: "0.875rem",
+                                  sm: "0.95rem",
+                                  md: "1rem",
+                                },
+                              },
+                            }}
                           >
                             <MenuItem value="">Select a service</MenuItem>
                             <MenuItem value="painting">Painting</MenuItem>
@@ -200,7 +339,7 @@ export default function ContactSection() {
                             <MenuItem value="other">Other</MenuItem>
                           </TextField>
                         </Grid>
-                        <Grid item size={{ xs: 12 }}>
+                        <Grid size={{ xs: 12 }}>
                           <TextField
                             fullWidth
                             multiline
@@ -210,9 +349,32 @@ export default function ContactSection() {
                             value={formData.message}
                             onChange={handleChange}
                             required
+                            InputLabelProps={{
+                              sx: {
+                                fontSize: {
+                                  xs: "0.85rem",
+                                  sm: "0.9rem",
+                                  md: "1rem",
+                                },
+                              },
+                            }}
+                            inputProps={{
+                              sx: {
+                                fontSize: {
+                                  xs: "0.875rem",
+                                  sm: "0.95rem",
+                                  md: "1rem",
+                                },
+                              },
+                            }}
                           />
                         </Grid>
                       </Grid>
+                      {error && (
+                        <Alert severity="error" sx={{ mt: 2 }}>
+                          {error}
+                        </Alert>
+                      )}
                       <Button
                         type="submit"
                         fullWidth
@@ -224,6 +386,7 @@ export default function ContactSection() {
                           "&:hover": { bgcolor: "#e65c00" },
                           fontWeight: "bold",
                           textTransform: "none",
+                          fontSize: { xs: "0.9rem", sm: "0.95rem", md: "1rem" },
                         }}
                         startIcon={<Send />}
                       >
@@ -236,8 +399,8 @@ export default function ContactSection() {
             </motion.div>
           </Grid>
 
-          {/* Contact Information */}
-          <Grid item size={{ xs: 12, md: 6 }}>
+          {/* Contact Info */}
+          <Grid size={{ xs: 12, md: 6 }}>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -255,10 +418,22 @@ export default function ContactSection() {
                 }}
               >
                 <Phone sx={{ fontSize: 48, mb: 2 }} />
-                <Typography variant="h5" fontWeight="bold">
+                <Typography
+                  variant="h5"
+                  fontWeight="bold"
+                  sx={{
+                    fontSize: { xs: "1.3rem", sm: "1.45rem", md: "1.6rem" },
+                  }}
+                >
                   Need Immediate Help?
                 </Typography>
-                <Typography variant="body2" sx={{ mb: 3 }}>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    mb: 3,
+                    fontSize: { xs: "0.875rem", sm: "0.95rem", md: "1rem" },
+                  }}
+                >
                   Call now for emergency repairs or urgent project needs
                 </Typography>
                 <Button
@@ -267,6 +442,7 @@ export default function ContactSection() {
                     bgcolor: "white",
                     color: "primary.main",
                     "&:hover": { bgcolor: "grey.100" },
+                    fontSize: { xs: "0.875rem", sm: "0.95rem", md: "1rem" },
                   }}
                   onClick={() => window.open("tel:+15551234567")}
                 >
@@ -276,7 +452,7 @@ export default function ContactSection() {
 
               <Grid container spacing={2}>
                 {contactInfo.map((item, index) => (
-                  <Grid item size={{ xs: 12 }} key={item.title}>
+                  <Grid size={{ xs: 12 }} key={item.title}>
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -289,13 +465,41 @@ export default function ContactSection() {
                             {item.icon}
                           </Avatar>
                           <Box>
-                            <Typography fontWeight="bold">
+                            <Typography
+                              fontWeight="bold"
+                              sx={{
+                                fontSize: {
+                                  xs: "0.9rem",
+                                  sm: "0.95rem",
+                                  md: "1rem",
+                                },
+                              }}
+                            >
                               {item.title}
                             </Typography>
-                            <Typography color="text.primary">
+                            <Typography
+                              color="text.primary"
+                              sx={{
+                                fontSize: {
+                                  xs: "0.875rem",
+                                  sm: "0.9rem",
+                                  md: "0.95rem",
+                                },
+                              }}
+                            >
                               {item.details}
                             </Typography>
-                            <Typography variant="body2" color="text.secondary">
+                            <Typography
+                              variant="body2"
+                              color="text.secondary"
+                              sx={{
+                                fontSize: {
+                                  xs: "0.75rem",
+                                  sm: "0.8rem",
+                                  md: "0.85rem",
+                                },
+                              }}
+                            >
                               {item.description}
                             </Typography>
                           </Box>
@@ -318,10 +522,22 @@ export default function ContactSection() {
                   <CheckCircle
                     sx={{ fontSize: 40, color: "success.main", mb: 2 }}
                   />
-                  <Typography fontWeight="bold" color="success.main">
+                  <Typography
+                    fontWeight="bold"
+                    color="success.main"
+                    sx={{
+                      fontSize: { xs: "1rem", sm: "1.05rem", md: "1.1rem" },
+                    }}
+                  >
                     Service Guarantee
                   </Typography>
-                  <Typography variant="body2" color="success.dark">
+                  <Typography
+                    variant="body2"
+                    color="success.dark"
+                    sx={{
+                      fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
+                    }}
+                  >
                     All work comes with a satisfaction guarantee. If you're not
                     happy, I'll make it right at no additional cost.
                   </Typography>

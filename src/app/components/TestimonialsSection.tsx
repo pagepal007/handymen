@@ -65,7 +65,7 @@ export default function TestimonialsSection() {
     <Box
       component="section"
       id="testimonials"
-      sx={{ py: 10, bgcolor: "grey.50" }}
+      sx={{ py: 8, bgcolor: "grey.50" }}
     >
       <Container maxWidth="lg">
         {/* Header */}
@@ -90,8 +90,9 @@ export default function TestimonialsSection() {
             component="h2"
             gutterBottom
             fontWeight="bold"
+            sx={{ fontSize: { xs: "1.75rem", md: "2rem" } }}
           >
-            What My Customers Say
+            What My <span style={{ color: "rgb(249,115,22)"}}>Customers Say</span> 
           </Typography>
           <Typography
             variant="body1"
@@ -151,7 +152,7 @@ export default function TestimonialsSection() {
                     </Typography>
 
                     {/* Customer Info */}
-                    <Box display="flex" alignItems="center" gap={2}>
+                    <Box display="flex" alignItems="center" mt={"auto"} gap={2}>
                       <Avatar
                         src={t.image}
                         alt={t.name}
