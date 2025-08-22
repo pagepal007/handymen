@@ -6,7 +6,6 @@ import {
   CardContent,
   Typography,
   Chip,
-  Button,
   Grid,
   Box,
 } from "@mui/material";
@@ -18,7 +17,6 @@ import {
   Zap,
   Hammer,
   Home,
-  ArrowRight,
 } from "lucide-react";
 
 type Service = {
@@ -108,7 +106,7 @@ const services: Service[] = [
 
 export default function ServicesSection() {
   return (
-    <Box component="section" id="services" sx={{ py: 10, bgcolor: "white" }}>
+    <Box component="section" id="services" sx={{ pb: 10,pt:10, bgcolor: "white" }}>
       <Box maxWidth="lg" sx={{ mx: "auto", px: { xs: 2, sm: 4, lg: 6 } }}>
         {/* Header */}
         <motion.div

@@ -77,7 +77,11 @@ export default function ContactSection() {
   };
 
   return (
-    <Box component="section" sx={{ py: 10, bgcolor: "background.paper" }}>
+    <Box
+      id="contact"
+      component="section"
+      sx={{ py: 10, bgcolor: "background.paper" }}
+    >
       <Box maxWidth="lg" mx="auto" px={2}>
         {/* Header */}
         <motion.div
@@ -87,7 +91,7 @@ export default function ContactSection() {
           viewport={{ once: true }}
           style={{ textAlign: "center", marginBottom: "3rem" }}
         >
-             <Chip
+          <Chip
             label="Get in Touch"
             sx={{
               bgcolor: "rgba(249,115,22,0.1)",
@@ -180,6 +184,7 @@ export default function ContactSection() {
                             name="service"
                             value={formData.service}
                             onChange={handleChange}
+                       
                           >
                             <MenuItem value="">Select a service</MenuItem>
                             <MenuItem value="painting">Painting</MenuItem>
@@ -213,7 +218,13 @@ export default function ContactSection() {
                         fullWidth
                         variant="contained"
                         size="large"
-                        sx={{ mt: 3,bgcolor: "#FF6B00", "&:hover": { bgcolor: "#e65c00" },fontWeight: "bold",textTransform: "none" }}
+                        sx={{
+                          mt: 3,
+                          bgcolor: "#FF6B00",
+                          "&:hover": { bgcolor: "#e65c00" },
+                          fontWeight: "bold",
+                          textTransform: "none",
+                        }}
                         startIcon={<Send />}
                       >
                         Send Request
@@ -274,7 +285,7 @@ export default function ContactSection() {
                     >
                       <Card elevation={4}>
                         <CardContent sx={{ display: "flex", gap: 2 }}>
-                          <Avatar sx={{ bgcolor: "#e65c00",color: "white" }}>
+                          <Avatar sx={{ bgcolor: "#e65c00", color: "white" }}>
                             {item.icon}
                           </Avatar>
                           <Box>

@@ -16,30 +16,28 @@ import {
 
 
 export default function HeroSection(): JSX.Element {
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
+
 
   return (
     <Box
       component="section"
       id="home"
       sx={{
-        minHeight: "100vh",
+        height: "100vh",
         background: "linear-gradient(to bottom right, #f8fafc, #ffffff)",
         position: "relative",
         pt: 10
       }}
     >
       {/* Background Pattern */}
-      <Box
+       <Box
         sx={{
           position: "absolute",
           inset: 0,
           opacity: 0.02,
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}
-      />
+      /> 
 
       <Box
         sx={{
@@ -47,7 +45,6 @@ export default function HeroSection(): JSX.Element {
           maxWidth: "1200px",
           mx: "auto",
           px: { xs: 2, sm: 3, lg: 4 },
-          pb: 10,
         }}
       >
         <Grid container spacing={8} alignItems="center">
@@ -231,7 +228,7 @@ export default function HeroSection(): JSX.Element {
                 <CardContent sx={{ p: 2 }}>
                   <Box
                     component="img"
-                    src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&h=400&fit=crop&crop=center"
+                    src="https://images.unsplash.com/photo-1618090584176-7132b9911657?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Professional handyman at work"
                     sx={{
                       width: "100%",

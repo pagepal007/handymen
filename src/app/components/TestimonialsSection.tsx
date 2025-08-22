@@ -170,32 +170,6 @@ export default function TestimonialsSection() {
            
           ))}
         </Box>
-
-        {/* Overall Rating */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <Paper
-            elevation={6}
-            sx={{
-              textAlign: "center",
-              mt: 6,
-              p: 4,
-              borderRadius: 3,
-            }}
-          >
-            <Rating value={5} readOnly sx={{ fontSize: 32, mb: 2 }} />
-            <Typography variant="h5" fontWeight="bold" gutterBottom>
-              4.9 out of 5 stars
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Based on 50+ customer reviews
-            </Typography>
-          </Paper>
-        </motion.div>
       </Container>
     </Box>
   );
