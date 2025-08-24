@@ -97,7 +97,7 @@ export default function TestimonialsSection() {
             mx="auto"
           >
             Don&apos;t just take my word for it. Here&apos;s what homeowners in our
-            community have to say about their experience working with HandyPro.
+            community have to say about their experience working with General Rooter XP-LLC.
           </Typography>
         </motion.div>
 
