@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Phone, Star, CheckCircle, Clock, Shield } from "lucide-react";
+import { Phone, CheckCircle, Clock, Shield } from "lucide-react";
 import {
   Box,
   Grid,
@@ -10,12 +10,11 @@ import {
   Button,
   Card,
   CardContent,
-  Chip,
   Stack,
 } from "@mui/material";
 import { TypeAnimation } from "react-type-animation";
 
-export default function HeroSection(): JSX.Element {
+export default function HeroSection() {
   return (
     <Box
       component="section"
@@ -111,7 +110,7 @@ export default function HeroSection(): JSX.Element {
                 >
                   From painting and plumbing to general repairs, I deliver
                   quality craftsmanship with honest pricing. Your home deserves
-                  the best care, and I'm here to provide it.
+                  the best care, and I&apos;m here to provide it.
                 </Typography>
 
                 {/* Features */}

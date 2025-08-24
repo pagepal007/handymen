@@ -3,7 +3,7 @@
 import React from "react";
 import { Box, Grid, Typography, Chip, Paper } from "@mui/material";
 import { motion } from "framer-motion";
-import { Award, Shield, Clock, Users, CheckCircle } from "lucide-react";
+import { Award, Clock, Users, CheckCircle } from "lucide-react";
 
 type Stat = {
   icon: React.ElementType;
@@ -76,14 +76,14 @@ export default function AboutSection() {
                   </Box>
                 </Typography>
                 <Typography variant="body1" color="text.secondary" paragraph>
-                  Hi, I'm Samir Kandic, and I've been serving homeowners in our
+                  Hi, I&apos;m Samir Kandic, and I&apos;ve been serving homeowners in our
                   community for over 10 years. What started as a passion for
                   fixing things has grown into a full-service handyman business
                   built on trust, quality, and old-fashioned customer service.
                 </Typography>
                 <Typography variant="body1" color="text.secondary">
                   I believe every home deserves to be well-maintained and
-                  beautiful. Whether it's a small repair or a major improvement
+                  beautiful. Whether it&apos;s a small repair or a major improvement
                   project, I approach each job with the same attention to detail
                   and commitment to excellence.
                 </Typography>

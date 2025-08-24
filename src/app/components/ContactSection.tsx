@@ -1,37 +1,25 @@
 "use client";
 
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React  from "react";
 import {
   Box,
   Grid,
   Card,
   CardContent,
-  CardHeader,
   Typography,
-  TextField,
   Button,
-  MenuItem,
   Avatar,
   Chip,
   Paper,
-  Alert,
 } from "@mui/material";
 import {
   Phone,
   Mail,
   AccessTime as Clock,
   CheckCircle,
-  Send,
 } from "@mui/icons-material";
 import { motion } from "framer-motion";
 
-interface ContactForm {
-  name: string;
-  email: string;
-  phone: string;
-  service: string;
-  message: string;
-}
 
 const contactInfo = [
   {
@@ -55,67 +43,6 @@ const contactInfo = [
 ];
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState<ContactForm>({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    message: "",
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const validateForm = () => {
-    if (
-      !formData.name ||
-      !formData.email ||
-      !formData.phone ||
-      !formData.message
-    ) {
-      return "All required fields must be filled out.";
-    }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      return "Please enter a valid email address.";
-    }
-    const phoneRegex = /^[0-9\-\+\s]{7,15}$/;
-    if (!phoneRegex.test(formData.phone)) {
-      return "Please enter a valid phone number.";
-    }
-    return null;
-  };
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    const validationError = validateForm();
-    if (validationError) {
-      setError(validationError);
-      return;
-    }
-    setError(null);
-
-    try {
-      // Simulate API call (replace with real API endpoint)
-      await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      setIsSubmitted(true);
-      setFormData({ name: "", email: "", phone: "", service: "", message: "" });
-
-      setTimeout(() => setIsSubmitted(false), 4000);
-    } catch (err) {
-      setError("Something went wrong. Please try again later.");
-    }
-  };
 
   return (
     <Box
@@ -163,241 +90,7 @@ export default function ContactSection() {
         </motion.div>
 
         <Grid container spacing={4}>
-          {/* Contact Form */}
-          {/* <Grid size={{ xs: 12, md: 6 }}>
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <Card elevation={6}>
-                <CardHeader
-                  title="Request Your Free Quote"
-                  subheader="Fill out the form below and I'll get back to you within 24 hours."
-                  titleTypographyProps={{
-                    sx: {
-                      fontSize: { xs: "1.2rem", sm: "1.3rem", md: "1.4rem" },
-                      fontWeight: "bold",
-                    },
-                  }}
-                  subheaderTypographyProps={{
-                    sx: {
-                      fontSize: { xs: "0.85rem", sm: "0.9rem", md: "1rem" },
-                    },
-                  }}
-                />
-                <CardContent>
-                  {isSubmitted ? (
-                    <Box textAlign="center" py={5}>
-                      <CheckCircle
-                        sx={{ fontSize: 60, color: "success.main", mb: 2 }}
-                      />
-                      <Typography variant="h6" fontWeight="bold" gutterBottom>
-                        Thank you!
-                      </Typography>
-                      <Typography
-                        color="text.secondary"
-                        sx={{
-                          fontSize: {
-                            xs: "0.875rem",
-                            sm: "0.95rem",
-                            md: "1rem",
-                          },
-                        }}
-                      >
-                        I'll review your request and get back to you within 24
-                        hours.
-                      </Typography>
-                    </Box>
-                  ) : (
-                    <Box component="form" onSubmit={handleSubmit}>
-                      <Grid container spacing={2}>
-                        <Grid size={{ xs: 12 }}>
-                          <TextField
-                            fullWidth
-                            label="Full Name *"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            required
-                            InputLabelProps={{
-                              sx: {
-                                fontSize: {
-                                  xs: "0.85rem",
-                                  sm: "0.9rem",
-                                  md: "1rem",
-                                },
-                              },
-                            }}
-                            inputProps={{
-                              sx: {
-                                fontSize: {
-                                  xs: "0.875rem",
-                                  sm: "0.95rem",
-                                  md: "1rem",
-                                },
-                              },
-                            }}
-                          />
-                        </Grid>
-                        <Grid size={{ xs: 12}}>
-                          <TextField
-                            fullWidth
-                            label="Phone Number *"
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleChange}
-                            required
-                            InputLabelProps={{
-                              sx: {
-                                fontSize: {
-                                  xs: "0.85rem",
-                                  sm: "0.9rem",
-                                  md: "1rem",
-                                },
-                              },
-                            }}
-                            inputProps={{
-                              sx: {
-                                fontSize: {
-                                  xs: "0.875rem",
-                                  sm: "0.95rem",
-                                  md: "1rem",
-                                },
-                              },
-                            }}
-                          />
-                        </Grid>
-                        <Grid size={{ xs: 12 }}>
-                          <TextField
-                            fullWidth
-                            label="Email Address *"
-                            name="email"
-                            type="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                            InputLabelProps={{
-                              sx: {
-                                fontSize: {
-                                  xs: "0.85rem",
-                                  sm: "0.9rem",
-                                  md: "1rem",
-                                },
-                              },
-                            }}
-                            inputProps={{
-                              sx: {
-                                fontSize: {
-                                  xs: "0.875rem",
-                                  sm: "0.95rem",
-                                  md: "1rem",
-                                },
-                              },
-                            }}
-                          />
-                        </Grid>
-                        <Grid size={{ xs: 12 }}>
-                          <TextField
-                            select
-                            fullWidth
-                            label="Service Needed"
-                            name="service"
-                            value={formData.service}
-                            onChange={handleChange}
-                            InputLabelProps={{
-                              sx: {
-                                fontSize: {
-                                  xs: "0.85rem",
-                                  sm: "0.9rem",
-                                  md: "1rem",
-                                },
-                              },
-                            }}
-                            inputProps={{
-                              sx: {
-                                fontSize: {
-                                  xs: "0.875rem",
-                                  sm: "0.95rem",
-                                  md: "1rem",
-                                },
-                              },
-                            }}
-                          >
-                            <MenuItem value="">Select a service</MenuItem>
-                            <MenuItem value="painting">Painting</MenuItem>
-                            <MenuItem value="plumbing">Plumbing</MenuItem>
-                            <MenuItem value="general">General Repairs</MenuItem>
-                            <MenuItem value="electrical">
-                              Basic Electrical
-                            </MenuItem>
-                            <MenuItem value="carpentry">Carpentry</MenuItem>
-                            <MenuItem value="maintenance">
-                              Home Maintenance
-                            </MenuItem>
-                            <MenuItem value="other">Other</MenuItem>
-                          </TextField>
-                        </Grid>
-                        <Grid size={{ xs: 12 }}>
-                          <TextField
-                            fullWidth
-                            multiline
-                            rows={4}
-                            label="Project Details *"
-                            name="message"
-                            value={formData.message}
-                            onChange={handleChange}
-                            required
-                            InputLabelProps={{
-                              sx: {
-                                fontSize: {
-                                  xs: "0.85rem",
-                                  sm: "0.9rem",
-                                  md: "1rem",
-                                },
-                              },
-                            }}
-                            inputProps={{
-                              sx: {
-                                fontSize: {
-                                  xs: "0.875rem",
-                                  sm: "0.95rem",
-                                  md: "1rem",
-                                },
-                              },
-                            }}
-                          />
-                        </Grid>
-                      </Grid>
-                      {error && (
-                        <Alert severity="error" sx={{ mt: 2 }}>
-                          {error}
-                        </Alert>
-                      )}
-                      <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        size="large"
-                        sx={{
-                          mt: 3,
-                          bgcolor: "#FF6B00",
-                          "&:hover": { bgcolor: "#e65c00" },
-                          fontWeight: "bold",
-                          textTransform: "none",
-                          fontSize: { xs: "0.9rem", sm: "0.95rem", md: "1rem" },
-                        }}
-                        startIcon={<Send />}
-                      >
-                        Send Request
-                      </Button>
-                    </Box>
-                  )}
-                </CardContent>
-              </Card>
-            </motion.div>
-          </Grid> */}
+
 
           {/* Contact Info */}
           <Grid size={{ xs: 12, md: 12 }}>
@@ -538,8 +231,8 @@ export default function ContactSection() {
                       fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
                     }}
                   >
-                    All work comes with a satisfaction guarantee. If you're not
-                    happy, I'll make it right at no additional cost.
+                    All work comes with a satisfaction guarantee. If you&apos;re not
+                    happy, I&apos;ll make it right at no additional cost.
                   </Typography>
                 </CardContent>
               </Card>

@@ -3,19 +3,15 @@ import React from "react";
 import {
   Card,
   CardContent,
-  CardHeader,
-  CardMedia,
   Typography,
   Chip,
   Box,
   Avatar,
-  Grid,
   Rating,
   Container,
-  Paper,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import { Star, FormatQuote } from "@mui/icons-material";
+import { FormatQuote } from "@mui/icons-material";
 
 type Testimonial = {
   id: number;
@@ -100,7 +96,7 @@ export default function TestimonialsSection() {
             maxWidth="md"
             mx="auto"
           >
-            Don't just take my word for it. Here's what homeowners in our
+            Don&apos;t just take my word for it. Here&apos;s what homeowners in our
             community have to say about their experience working with HandyPro.
           </Typography>
         </motion.div>
@@ -148,7 +144,7 @@ export default function TestimonialsSection() {
                       color="text.primary"
                       sx={{ mb: 3, fontStyle: "italic" }}
                     >
-                      "{t.text}"
+                      &quot;{t.text}&quot;
                     </Typography>
 
                     {/* Customer Info */}
