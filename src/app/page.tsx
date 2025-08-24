@@ -61,7 +61,7 @@ export default function Home() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "HomeAndConstructionBusiness",
-              "name": "Handyman Pro",
+              "name": "General Rooter XP-LLC",
               "url": "https://yourwebsite.com",
               "logo": "https://yourwebsite.com/logo.png",
               "sameAs": [
