@@ -36,13 +36,13 @@ export default function Home() {
         <title>  General Rooter XP-LLC</title>
         <meta
           name="description"
-          content="Handyman Pro offers professional handyman services including plumbing, painting, repairs, and more. Trusted for quality work."
+          content=" General Rooter XP-LLC offers professional handyman services including plumbing, painting, repairs, and more. Trusted for quality work."
         />
         <meta
           name="keywords"
           content="handyman, plumbing, painting, home repairs, handyman services, professional handyman"
         />
-        <meta name="author" content="Handyman Pro" />
+        <meta name="author" content=" General Rooter XP-LLC" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://yourwebsite.com/" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -68,16 +68,16 @@ export default function Home() {
                 "https://www.facebook.com/yourpage",
                 "https://www.instagram.com/yourpage"
               ],
-              "priceRange": "$$",
+              "priceRange": "$200-$300",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "123 Main St",
                 "addressLocality": "YourCity",
-                "addressRegion": "YourState",
+                "addressRegion": "New Jersey",
                 "postalCode": "12345",
                 "addressCountry": "US"
               },
-              "telephone": "+1234567890",
+              "telephone": "860-994-9097",
               "image": "https://yourwebsite.com/hero-image.jpg"
             }),
           }}
