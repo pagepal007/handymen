@@ -43,13 +43,13 @@ const contactInfo = [
   {
     icon: <Mail color="primary" />,
     title: "Email",
-    details: "info@handypro.com",
+    details: "generalrooterxp@gmail.com",
     description: "Response within 24 hours",
   },
   {
     icon: <Clock color="primary" />,
     title: "Business Hours",
-    details: "Mon-Sat: 8AM-6PM",
+    details: "Mon-Sat: 8AM-8PM",
     description: "Emergency service available 24/7",
   },
 ];
@@ -164,7 +164,7 @@ export default function ContactSection() {
 
         <Grid container spacing={4}>
           {/* Contact Form */}
-          <Grid size={{ xs: 12, md: 6 }}>
+          {/* <Grid size={{ xs: 12, md: 6 }}>
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -397,10 +397,10 @@ export default function ContactSection() {
                 </CardContent>
               </Card>
             </motion.div>
-          </Grid>
+          </Grid> */}
 
           {/* Contact Info */}
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid size={{ xs: 12, md: 12 }}>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -446,7 +446,7 @@ export default function ContactSection() {
                   }}
                   onClick={() => window.open("tel:+15551234567")}
                 >
-                  Call (555) 123-4567
+                  Call (860)-994-9097
                 </Button>
               </Paper>
 

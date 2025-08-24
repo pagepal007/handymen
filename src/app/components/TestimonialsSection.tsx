@@ -30,33 +30,33 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    location: "Downtown",
+    name: "Ansuman",
+    location: "Edison",
     rating: 5,
-    text: "Mike did an absolutely fantastic job painting our entire house interior. His attention to detail is incredible, and he was so professional throughout the whole process. Highly recommend!",
+    text: "Samir did an absolutely fantastic job painting our entire house interior. His attention to detail is incredible, and he was so professional throughout the whole process. Highly recommend!",
     service: "Interior Painting",
     image:
       "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
   },
   {
     id: 2,
-    name: "Robert Chen",
-    location: "Westside",
+    name: "Saud",
+    location: "Maplewood",
     rating: 5,
-    text: "Had a major plumbing emergency on a Sunday morning. Mike came out within 2 hours and fixed everything perfectly. Fair pricing and excellent work. Will definitely use again.",
+    text: "Had a major plumbing emergency on a Sunday morning. Samir came out within 2 hours and fixed everything perfectly. Fair pricing and excellent work. Will definitely use again.",
     service: "Emergency Plumbing",
     image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
   },
   {
     id: 3,
-    name: "Lisa Martinez",
-    location: "Riverside",
+    name: "Amer",
+    location: "Brooklyn",
     rating: 5,
-    text: "Mike installed custom shelving in our home office and it looks amazing! He's reliable, skilled, and really cares about doing quality work. Couldn't be happier.",
+    text: "Samir installed custom shelving in our home office and it looks amazing! He's reliable, skilled, and really cares about doing quality work. Couldn't be happier.",
     service: "Custom Carpentry",
     image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
   },
 ];
 

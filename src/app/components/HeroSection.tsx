@@ -52,7 +52,7 @@ export default function HeroSection(): JSX.Element {
               transition={{ duration: 0.8 }}
             >
               <Stack spacing={2} textAlign={{ xs: "center", md: "left" }}>
-                <Chip
+                {/* <Chip
                   label="⭐ Licensed & Insured Professional"
                   sx={{
                     backgroundColor: "#FFF4E5",
@@ -62,7 +62,7 @@ export default function HeroSection(): JSX.Element {
 
                     alignSelf: { xs: "center", md: "flex-start" },
                   }}
-                />
+                /> */}
 
                 <Typography
                   variant="h2"
@@ -188,7 +188,7 @@ export default function HeroSection(): JSX.Element {
                         Get Free Quote – Call Now
                       </Typography>
                       <Typography variant="body1" fontWeight="bold">
-                        +1234567890
+                        860-994-9097
                       </Typography>
                     </Box>
                   </Button>

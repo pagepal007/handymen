@@ -18,7 +18,7 @@ const stats: Stat[] = [
 ];
 
 const qualities: string[] = [
-  "Licensed & Insured Professional",
+  // "Licensed & Insured Professional",
   "Transparent, Upfront Pricing",
   "Quality Materials & Workmanship",
   "Clean & Respectful Service",
@@ -76,7 +76,7 @@ export default function AboutSection() {
                   </Box>
                 </Typography>
                 <Typography variant="body1" color="text.secondary" paragraph>
-                  Hi, I'm Mike Johnson, and I've been serving homeowners in our
+                  Hi, I'm Samir Kandic, and I've been serving homeowners in our
                   community for over 10 years. What started as a passion for
                   fixing things has grown into a full-service handyman business
                   built on trust, quality, and old-fashioned customer service.
@@ -119,7 +119,7 @@ export default function AboutSection() {
               </Box>
 
               {/* Certifications */}
-              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+              {/* <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
                 <Chip
                   icon={<Shield size={16} />}
                   label="Licensed Professional"
@@ -140,7 +140,7 @@ export default function AboutSection() {
                     px: 2,
                   }}
                 />
-              </Box>
+              </Box> */}
             </motion.div>
           </Grid>
 
@@ -163,7 +163,7 @@ export default function AboutSection() {
               >
                 <Box
                   component="img"
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face"
+                  src="/mike-johnson.png"
                   alt="Mike Johnson - Professional Handyman"
                   sx={{
                     width: "100%",

@@ -1,17 +1,39 @@
 // app/page.tsx
 import Head from "next/head";
-import HeroSection from './components/HeroSection';
-import GallerySection from './components/GallerySection';
-import TestimonialsSection from './components/TestimonialsSection';
-import ContactSection from './components/ContactSection';
-import AboutSection from './components/AboutSection';
-import ServicesSection from './components/ServicesSection';
+import dynamic from "next/dynamic";
+import HeroSection from "./components/HeroSection";
+
+// Lazy-load below-the-fold sections with placeholders
+const ServicesSection = dynamic(
+  () => import("./components/ServicesSection"),
+  { loading: () => <p>Loading Services...</p> }
+);
+
+const AboutSection = dynamic(
+  () => import("./components/AboutSection"),
+  { loading: () => <p>Loading About...</p> }
+);
+
+const GallerySection = dynamic(
+  () => import("./components/GallerySection"),
+  { loading: () => <p>Loading Gallery...</p> } // client-only if using browser APIs
+);
+
+const TestimonialsSection = dynamic(
+  () => import("./components/TestimonialsSection"),
+  { loading: () => <p>Loading Testimonials...</p> }
+);
+
+const ContactSection = dynamic(
+  () => import("./components/ContactSection"),
+  { loading: () => <p>Loading Contact Form...</p> }
+);
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Handyman Pro - Trusted Handyman Services</title>
+        <title>  General Rooter XP-LLC</title>
         <meta
           name="description"
           content="Handyman Pro offers professional handyman services including plumbing, painting, repairs, and more. Trusted for quality work."
@@ -26,7 +48,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* Open Graph for social sharing */}
-        <meta property="og:title" content="Handyman Pro - Trusted Handyman Services" />
+        <meta property="og:title" content="  General Rooter XP-LLC" />
         <meta property="og:description" content="Professional handyman services for every home project." />
         <meta property="og:image" content="https://yourwebsite.com/hero-image.jpg" />
         <meta property="og:url" content="https://yourwebsite.com" />

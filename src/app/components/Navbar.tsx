@@ -79,7 +79,7 @@ export default function ButtonAppBar() {
                 }}
                 onClick={() => handleScroll("home")}
               >
-                Handyman Pro
+                General Rooter XP-LLC
               </Typography>
             </Box>
           </Box>
