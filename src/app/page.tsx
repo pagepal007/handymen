@@ -34,6 +34,7 @@ export default function Home() {
     <>
       <Head>
         <title>  General Rooter XP-LLC</title>
+        <meta name="google-site-verification" content="DV1SQZtTHArP3mi0o3LwM7VLayTrm_Xkm9S5am7HpgY" />
         <meta
           name="description"
           content=" General Rooter XP-LLC offers professional handyman services including plumbing, painting, repairs, and more. Trusted for quality work."
