@@ -45,14 +45,14 @@ export default function Home() {
         />
         <meta name="author" content=" General Rooter XP-LLC" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://yourwebsite.com/" />
+        <link rel="canonical" href="https://generalrooterxp.netlify.app/" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* Open Graph for social sharing */}
         <meta property="og:title" content="  General Rooter XP-LLC" />
         <meta property="og:description" content="Professional handyman services for every home project." />
-        <meta property="og:image" content="https://yourwebsite.com/hero-image.jpg" />
-        <meta property="og:url" content="https://yourwebsite.com" />
+        <meta property="og:image" content="https://generalrooterxp.netlify.app//hero-image.jpg" />
+        <meta property="og:url" content="https://generalrooterxp.netlify.app/" />
         <meta property="og:type" content="website" />
 
         {/* JSON-LD structured data */}
@@ -63,8 +63,8 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "HomeAndConstructionBusiness",
               "name": "General Rooter XP-LLC",
-              "url": "https://yourwebsite.com",
-              "logo": "https://yourwebsite.com/logo.png",
+              "url": "https://generalrooterxp.netlify.app/",
+              "logo": "https://generalrooterxp.netlify.app//logo.png",
               "sameAs": [
                 "https://www.facebook.com/yourpage",
                 "https://www.instagram.com/yourpage"
@@ -73,13 +73,13 @@ export default function Home() {
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "123 Main St",
-                "addressLocality": "YourCity",
+                "addressLocality": "Maplewood",
                 "addressRegion": "New Jersey",
                 "postalCode": "12345",
                 "addressCountry": "US"
               },
               "telephone": "860-994-9097",
-              "image": "https://yourwebsite.com/hero-image.jpg"
+              "image": "https://generalrooterxp.netlify.app//hero-image.jpg"
             }),
           }}
         />
