@@ -162,7 +162,7 @@ export default function HeroSection() {
                   <Button
                     variant="contained"
                     size="large"
-                    onClick={() => window.open("tel:+1234567890")}
+                    onClick={() => window.open("tel:860-994-9097")}
                     startIcon={<Phone />}
                     sx={{
                       backgroundColor: "#FF6B00",

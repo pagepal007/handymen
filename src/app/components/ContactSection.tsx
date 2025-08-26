@@ -25,7 +25,7 @@ const contactInfo = [
   {
     icon: <Phone color="primary" />,
     title: "Call or Text",
-    details: "(555) 123-4567",
+    details: "860-994-9097",
     description: "Available 7 days a week for emergencies",
   },
   {
@@ -137,7 +137,7 @@ export default function ContactSection() {
                     "&:hover": { bgcolor: "grey.100" },
                     fontSize: { xs: "0.875rem", sm: "0.95rem", md: "1rem" },
                   }}
-                  onClick={() => window.open("tel:+15551234567")}
+                  onClick={() => window.open("tel:860-994-9097")}
                 >
                   Call (860)-994-9097
                 </Button>
