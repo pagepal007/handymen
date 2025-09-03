@@ -65,8 +65,8 @@ export default function AboutSection() {
                     fontSize: {
                       xs: "1.75rem",
                       md: "2.25rem",
-                      color: "text.primary",
                     },
+                    color: "text.primary",
                   }}
                 >
                   Your Reliable Home
