@@ -86,7 +86,7 @@ export default function TestimonialsSection() {
             component="h2"
             gutterBottom
             fontWeight="bold"
-            sx={{ fontSize: { xs: "1.75rem", md: "2rem" } }}
+            sx={{ fontSize: { xs: "1.75rem", md: "2rem",color: "text.primary" } }}
           >
             What My <span style={{ color: "rgb(249,115,22)"}}>Customers Say</span> 
           </Typography>

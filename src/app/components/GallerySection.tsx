@@ -119,7 +119,7 @@ export default function GallerySection() {
           <Typography
             variant="h4"
             fontWeight="bold"
-            sx={{ fontSize: { xs: "1.75rem", md: "2rem" } }}
+            sx={{ fontSize: { xs: "1.75rem", md: "2rem",color: "text.primary" } }}
             gutterBottom
           >
             Recent <span style={{ color: "rgb(249,115,22)" }}>Projects</span>

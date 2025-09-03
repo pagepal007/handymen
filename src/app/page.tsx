@@ -32,15 +32,15 @@ export default function Home() {
       <Head>
         {/* SEO Meta Tags */}
         <title>
-          Plumber & Handyman Services in Maplewood NJ | General Rooter XP-LLC
+          Plumber & Handyman Services in Bellevue NJ | General Rooter XP-LLC
         </title>
         <meta
           name="description"
-          content="Looking for a plumber in Maplewood, NJ? General Rooter XP-LLC provides expert plumbing, handyman, and home repair services. Call 860-994-9097 today!"
+          content="Looking for a plumber in Bellevue, NJ? General Rooter XP-LLC provides expert plumbing, handyman, and home repair services. Call 860-994-9097 today!"
         />
         <meta
           name="keywords"
-          content="plumber Maplewood NJ, plumbing services Maplewood, emergency plumber Maplewood, handyman Maplewood, plumbing repair, drain cleaning"
+          content="plumber Bellevue NJ, plumbing services Bellevue, emergency plumber Bellevue, handyman Bellevue, plumbing repair, drain cleaning"
         />
         <meta name="author" content="General Rooter XP-LLC" />
         <meta name="robots" content="index, follow" />
@@ -56,11 +56,11 @@ export default function Home() {
         {/* Open Graph for social sharing */}
         <meta
           property="og:title"
-          content="Plumber in Maplewood NJ | General Rooter XP-LLC"
+          content="Plumber in Bellevue NJ | General Rooter XP-LLC"
         />
         <meta
           property="og:description"
-          content="Professional plumbing & handyman services in Maplewood, NJ. Call 860-994-9097 for fast, reliable service."
+          content="Professional plumbing & handyman services in Bellevue, NJ. Call 860-994-9097 for fast, reliable service."
         />
         <meta
           property="og:image"
@@ -87,10 +87,10 @@ export default function Home() {
               priceRange: "$200-$300",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "123 Main St",
-                addressLocality: "Maplewood",
+                streetAddress: "53 Brightwood Ave",
+                addressLocality: "Bellevue NJ",
                 addressRegion: "New Jersey",
-                postalCode: "12345",
+                postalCode: "07109",
                 addressCountry: "US",
               },
               sameAs: [
@@ -105,7 +105,7 @@ export default function Home() {
               ],
               areaServed: {
                 "@type": "Place",
-                name: "Maplewood, New Jersey",
+                name: "Bellevue, New Jersey",
               },
             }),
           }}

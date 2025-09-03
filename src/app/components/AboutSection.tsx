@@ -27,11 +27,7 @@ const qualities: string[] = [
 
 export default function AboutSection() {
   return (
-    <Box
-      component="section"
-      id="about"
-      sx={{ py:8, bgcolor: "grey.50" }}
-    >
+    <Box component="section" id="about" sx={{ py: 8, bgcolor: "grey.50" }}>
       <Box maxWidth="lg" sx={{ mx: "auto", px: { xs: 2, sm: 4, lg: 6 } }}>
         <Grid container spacing={6} alignItems="center">
           {/* Left Content */}
@@ -65,7 +61,13 @@ export default function AboutSection() {
                   variant="h4"
                   fontWeight="bold"
                   gutterBottom
-                  sx={{ fontSize: { xs: "1.75rem", md: "2.25rem" } }}
+                  sx={{
+                    fontSize: {
+                      xs: "1.75rem",
+                      md: "2.25rem",
+                      color: "text.primary",
+                    },
+                  }}
                 >
                   Your Reliable Home
                   <Box
@@ -76,45 +78,56 @@ export default function AboutSection() {
                   </Box>
                 </Typography>
                 <Typography variant="body1" color="text.secondary" paragraph>
-                  Hi, I&apos;m Samir Kandic, and I&apos;ve been serving homeowners in our
-                  community for over 10 years. What started as a passion for
-                  fixing things has grown into a full-service handyman business
-                  built on trust, quality, and old-fashioned customer service.
+                  Hi, I&apos;m Samir Kandic, and I&apos;ve been serving
+                  homeowners in our community for over 10 years. What started as
+                  a passion for fixing things has grown into a full-service
+                  handyman business built on trust, quality, and old-fashioned
+                  customer service.
                 </Typography>
                 <Typography variant="body1" color="text.secondary">
                   I believe every home deserves to be well-maintained and
-                  beautiful. Whether it&apos;s a small repair or a major improvement
-                  project, I approach each job with the same attention to detail
-                  and commitment to excellence.
+                  beautiful. Whether it&apos;s a small repair or a major
+                  improvement project, I approach each job with the same
+                  attention to detail and commitment to excellence.
                 </Typography>
               </Box>
 
               {/* Qualities */}
-              <Box display={"flex"} flexDirection={"column"} justifyContent={"center"}   alignItems={{xs:"center",md:"flex-start"}}   >
-                <Typography variant="h6" fontWeight="bold" gutterBottom>
+              <Box
+                display={"flex"}
+                flexDirection={"column"}
+                justifyContent={"center"}
+                alignItems={{ xs: "center", md: "flex-start" }}
+              >
+                <Typography
+                  variant="h6"
+                  fontWeight="bold"
+                  sx={{ color: "text.primary" }}
+                  gutterBottom
+                >
                   Why Choose HandyPro?
                 </Typography>
-                <Box >
-                {qualities.map((quality, index) => (
-                  <motion.div
-                    key={quality}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "0.75rem",
-                      marginBottom: "0.5rem",
-                    }}
-                  >
-                    <CheckCircle size={20} color="#22c55e" />
-                    <Typography variant="body2" color="text.primary">
-                      {quality}
-                    </Typography>
-                  </motion.div>
-                ))}
+                <Box>
+                  {qualities.map((quality, index) => (
+                    <motion.div
+                      key={quality}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.75rem",
+                        marginBottom: "0.5rem",
+                      }}
+                    >
+                      <CheckCircle size={20} color="#22c55e" />
+                      <Typography variant="body2" color="text.primary">
+                        {quality}
+                      </Typography>
+                    </motion.div>
+                  ))}
                 </Box>
               </Box>
 
@@ -151,7 +164,7 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              style={{ display: "flex", flexDirection: "column", gap: "2rem", }}
+              style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
             >
               {/* Profile Image */}
               <Box
@@ -203,8 +216,7 @@ export default function AboutSection() {
                 gridTemplateColumns={{ xs: "1fr 1fr", sm: "repeat(3, 1fr)" }}
                 gap={2}
                 justifyContent="center"
-                 textAlign="center"
-           
+                textAlign="center"
               >
                 {stats.map((stat, index) => {
                   const Icon = stat.icon;

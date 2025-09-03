@@ -15,7 +15,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "General Rooter XP-LLC",
-  description: "General Rooter XP-LLC offers professional handyman services including plumbing, painting, repairs, and more. Trusted for quality work.",
+  description:
+    "General Rooter XP-LLC offers professional handyman services including plumbing, painting, repairs, and more. Trusted for quality work.",
+  verification: {
+    google: "DV1SQZtTHArP3mi0o3LwM7VLayTrm_Xkm9S5am7HpgY", 
+  },
 };
 
 export default function RootLayout({

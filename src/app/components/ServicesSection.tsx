@@ -125,7 +125,7 @@ export default function ServicesSection() {
               mb: 2,
             }}
           />
-          <Typography variant="h4"  fontWeight="bold" sx={{ fontSize: { xs: "1.5rem", md: "2rem" } }} gutterBottom>
+          <Typography variant="h4"  fontWeight="bold" sx={{ fontSize: { xs: "1.5rem", md: "2rem" }, color: "text.primary" }} gutterBottom>
             Complete <span style={{ color: "rgb(249,115,22)"}}>Home Solutions</span> 
           </Typography>
           <Typography

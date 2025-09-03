@@ -73,7 +73,7 @@ export default function ContactSection() {
             variant="h4"
             fontWeight="bold"
             gutterBottom
-            sx={{ fontSize: { xs: "1.75rem", sm: "2rem"} }}
+            sx={{ fontSize: { xs: "1.75rem", sm: "2rem"},color: "text.primary" }}
           >
             Ready to <span style={{ color: "rgb(249,115,22)"}}>Start Your Project?</span> 
           </Typography>
