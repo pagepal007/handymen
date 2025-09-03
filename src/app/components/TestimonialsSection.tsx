@@ -83,7 +83,6 @@ export default function TestimonialsSection() {
           />
           <Typography
             variant="h4"
-            component="h2"
             gutterBottom
             fontWeight="bold"
             sx={{ fontSize: { xs: "1.75rem", md: "2rem",color: "text.primary" } }}
