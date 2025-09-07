@@ -6,4 +6,4 @@ Allow: /
 Host: https://generalrooterxp.netlify.app
 
 # Sitemaps
-Sitemap: https://generalrooterxp.netlify.app/sitemap_index.xml
+Sitemap: https://generalrooterxp.netlify.app/sitemap.xml
