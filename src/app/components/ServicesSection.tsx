@@ -48,10 +48,10 @@ const services: Service[] = [
     description:
       "From leaky faucets to pipe installations, I handle all your plumbing needs with precision and care. Emergency repairs available.",
     features: [
+      "Main Line Maintenance",
       "Leak Repairs",
       "Fixture Installation",
       "Pipe Work",
-      "Emergency Service",
     ],
     image:
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
@@ -61,7 +61,7 @@ const services: Service[] = [
     title: "General Handyman Work",
     description:
       "Whatever needs fixing, building, or improving around your home, I've got the skills and tools to get the job done right.",
-    features: ["Home Repairs", "Assembly", "Maintenance", "Installations"],
+    features: ["Home Repairs","Home Maintenance", "Assembly", "Maintenance", "Installations"],
     image:
       "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=400&h=300&fit=crop",
   },
@@ -90,17 +90,18 @@ const services: Service[] = [
   },
   {
     icon: Home,
-    title: "Home Maintenance",
+    title: "Main Line Maintenance",
     description:
-      "Regular maintenance services to keep your home in top shape year-round. Preventive care saves money.",
+      "Complete maintenance of main lines including toilet, kitchen drain, floor drain, bathtub drain, laundry drain, and more!",
     features: [
-      "Seasonal Checks",
-      "Preventive Care",
+      "kitchen drain Cleaning",
+      "floor drain Cleaning",
+      "laundry drain Cleaning",
       "Regular Service",
-      "Peace of Mind",
     ],
     image:
-      "https://images.unsplash.com/photo-1505798577917-a65157d3320a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      // "https://images.unsplash.com/photo-1505798577917-a65157d3320a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "/main.webp",
   },
 ];
 

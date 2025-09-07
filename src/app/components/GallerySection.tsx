@@ -9,6 +9,7 @@ import {
   Button,
   Dialog,
   IconButton,
+  DialogContent,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
@@ -90,6 +91,26 @@ const categories = [
 export default function GallerySection() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
+  const [open, setOpen] = useState(false);
+
+  // assuming your images are in `/public/projects/`
+  const images = [
+    "/IMG1.JPEG",
+    "/IMG2.JPEG",
+    "/IMG3.JPEG",
+    "/IMG4.JPEG",
+    "/IMG5.JPEG",
+    "/IMG6.JPEG",
+    "/IMG7.JPEG",
+    "/IMG8.JPEG",
+    "/IMG9.JPEG",
+    "/IMG10.JPEG",
+    "/IMG11.JPEG",
+    "/IMG12.JPEG",
+    "/IMG13.JPEG",
+    "/IMG14.JPEG",
+    "/IMG15.JPEG",
+  ];
 
   const filteredItems =
     activeCategory === "All"
@@ -119,7 +140,10 @@ export default function GallerySection() {
           <Typography
             variant="h4"
             fontWeight="bold"
-            sx={{ fontSize: { xs: "1.75rem", md: "2rem"},color: "text.primary"  }}
+            sx={{
+              fontSize: { xs: "1.75rem", md: "2rem" },
+              color: "text.primary",
+            }}
             gutterBottom
           >
             Recent <span style={{ color: "rgb(249,115,22)" }}>Projects</span>
@@ -167,6 +191,31 @@ export default function GallerySection() {
               </Button>
             ))}
           </Box>
+         <Button
+  variant="contained"
+
+  sx={{
+    bgcolor: "rgb(249,115,22)",
+    "&:hover": {
+      bgcolor: "rgb(234,88,12)",
+      transform: "scale(1.04)",
+      boxShadow: 4,
+    },
+    transition: "all 0.2s ease-in-out",
+    fontWeight: 600,
+    letterSpacing: 0.4,
+    px: 3,
+    py: 1.2,
+    borderRadius: "12px",
+    textTransform: "none",
+    boxShadow: 2,
+    width: { xs: "100%", sm: "170px" },
+    mt: 4,
+  }}
+  onClick={() => setOpen(true)}
+>
+  View Photos
+</Button>
         </motion.div>
 
         {/* Gallery Grid */}
@@ -315,6 +364,35 @@ export default function GallerySection() {
               </Box>
             </Box>
           )}
+        </Dialog>
+        <Dialog
+          open={open}
+          onClose={() => setOpen(false)}
+          maxWidth="lg"
+          fullWidth
+        >
+          <DialogContent>
+            <Grid container spacing={2}>
+              {images.map((src, i) => (
+                <Grid size={{ xs: 12, md: 6, lg: 4 }} key={i}>
+                  <Box
+                    component="img"
+                    src={src}
+                    alt={`Project ${i + 1}`}
+                    sx={{
+                      width: "100%",
+                      height: 340,
+                      objectFit: "cover",
+                      borderRadius: 1,
+                    }}
+                  />
+                </Grid>
+              ))}
+            </Grid>
+            <Box textAlign="right" mt={2}>
+              <Button onClick={() => setOpen(false)}>Close</Button>
+            </Box>
+          </DialogContent>
         </Dialog>
       </Box>
     </Box>
