@@ -78,35 +78,37 @@ export default function Home() {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Plumber",
+              "@type": "HomeAndConstructionBusiness",
               name: "General Rooter XP-LLC",
               url: "https://generalrooterxp.netlify.app/",
               logo: "https://generalrooterxp.netlify.app/logo.png",
               image: "https://generalrooterxp.netlify.app/hero-image.jpg",
-              telephone: "860-994-9097",
+              telephone: "+1-860-994-9097",
               priceRange: "$200-$300",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "53 Brightwood Ave",
-                addressLocality: "Bellevue NJ",
-                addressRegion: "New Jersey",
+                addressLocality: "Bellevue",
+                addressRegion: "NJ",
                 postalCode: "07109",
                 addressCountry: "US",
               },
               sameAs: [
-                "https://www.facebook.com/yourpage",
-                "https://www.instagram.com/yourpage",
+                "https://www.facebook.com/generalrooterxp",
+                "https://www.instagram.com/generalrooterxp",
               ],
-              serviceType: [
-                "Plumbing",
-                "Drain Cleaning",
-                "Handyman Repairs",
-                "Painting",
+              areaServed: [
+                {
+                  "@type": "Place",
+                  name: "Bellevue, New Jersey",
+                },
               ],
-              areaServed: {
-                "@type": "Place",
-                name: "Bellevue, New Jersey",
-              },
+              makesOffer: [
+                { "@type": "Service", name: "Plumbing" },
+                { "@type": "Service", name: "Handyman Repairs" },
+                { "@type": "Service", name: "Drain Cleaning" },
+                { "@type": "Service", name: "Painting" },
+              ],
             }),
           }}
         />
