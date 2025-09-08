@@ -17,6 +17,7 @@ import {
   Mail,
   AccessTime as Clock,
   CheckCircle,
+  LocationCity,
 } from "@mui/icons-material";
 import { motion } from "framer-motion";
 
@@ -39,6 +40,12 @@ const contactInfo = [
     title: "Business Hours",
     details: "Mon-Sat: 8AM-8PM",
     description: "Emergency service available 24/7",
+  },
+  {
+    icon: <LocationCity color="primary" />,
+    title: "Location",
+    details: "Belleville, NJ",
+    description: "Servicing 30 miles around",
   },
 ];
 

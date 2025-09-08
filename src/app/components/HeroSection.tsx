@@ -13,6 +13,7 @@ import {
   Stack,
 } from "@mui/material";
 import { TypeAnimation } from "react-type-animation";
+import { Call } from "@mui/icons-material";
 
 export default function HeroSection() {
   return (
@@ -95,7 +96,7 @@ export default function HeroSection() {
                     }}
                   >
                     <TypeAnimation
-                      sequence={["For Every Home Project", 1000, "", 2000]}
+                      sequence={["Servicing NJ and NY", 1000, "", 2000]}
                       wrapper="span"
                       cursor={true}
                       repeat={Infinity}
@@ -118,18 +119,18 @@ export default function HeroSection() {
                   {[
                     {
                       icon: <CheckCircle color="green" size={17} />,
-                      title: "Quality Work",
-                      subtitle: "Every time",
+                      title: "Residential Service",
+                      subtitle: "24 x 7",
                     },
                     {
                       icon: <Clock color="blue" size={17} />,
-                      title: "On Time",
-                      subtitle: "Always",
+                      title: "Commercial Service",
+                      subtitle: "24 x 7",
                     },
                     {
-                      icon: <Shield color="purple" size={17} />,
-                      title: "Guaranteed",
-                      subtitle: "100%",
+                      icon: <Phone color="purple" size={17} />,
+                      title: "Emergency Call",
+                      subtitle: "Anytime",
                     },
                   ].map((f, i) => (
                     <Grid size={{ xs: 12, sm: 4 }} key={i}>
